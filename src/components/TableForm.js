@@ -3,7 +3,7 @@
 import React from "react";
 
 
-export default function TableForm(props) {
+function TableForm(props) {
   const createTable = 
   
   return (
@@ -47,3 +47,5 @@ export default function TableForm(props) {
     </div>
   );
   }
+
+  export default TableForm
