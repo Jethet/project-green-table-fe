@@ -1,14 +1,14 @@
+//	components/TableForm.js
+
 import React from "react";
-import {Link} from 'react-router-dom';
 
 
 export default function TableForm(props) {
   const createTable = 
   
-
   return (
     <div>
-      <h1>Create a table!</h1>
+      {/* <h1>Create a table!</h1> */}
       <ul>
         <li>Date:</li>
         <li>Location:</li>
@@ -46,4 +46,4 @@ export default function TableForm(props) {
         </li>
     </div>
   );
-}
+  }
