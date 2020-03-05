@@ -90,10 +90,10 @@ To use the app, someone has to sign up. They have to provide their username, cit
 - SplashPage
 - SignupPage
 - LoginPage
-- CalendarPage
+- CalendarPage  BACKLOG
 - CreateTablePage
 - InvitationPage
-- TableDetailPage
+- TableDetailsPage
 - TableUpdatePage
 - ProfilePage
 - CreditsPage
