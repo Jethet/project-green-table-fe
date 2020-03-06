@@ -10,6 +10,7 @@ import Private from "./pages/Private";
 
 import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
+import TableForm from "./components/PrivateRoute";
 
 class App extends Component {
   render() {
@@ -19,7 +20,7 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={Home} />
-
+          <Route exact path="/table" component={TableForm} />
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
 
