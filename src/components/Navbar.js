@@ -8,26 +8,14 @@ class Navbar extends Component {
 
     return (
       <nav className="navbar">
-        <Link to={"/"} id="home-btn">
-          <h4>Home</h4>
-        </Link>
+        <Link to={"/"} id="home-btn"></Link>
         {isLoggedIn ? (
           <>
             <p>username: {user.username}</p>
             <button onClick={logout}>Logout</button>
           </>
         ) : (
-          <>
-            <Link to="/login">
-              {" "}
-              <button className="navbar-button">Login</button>{" "}
-            </Link>
-            <br />
-            <Link to="/signup">
-              {" "}
-              <button className="navbar-button">Sign Up</button>{" "}
-            </Link>
-          </>
+         
         )}
       </nav>
     );
