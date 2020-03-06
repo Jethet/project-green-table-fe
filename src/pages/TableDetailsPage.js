@@ -1,3 +1,5 @@
+// TableDetailsPage
+
 import React from "react";
 
 function TableDetails() {

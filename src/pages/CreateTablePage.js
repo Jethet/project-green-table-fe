@@ -93,6 +93,11 @@ class CreateTablePage extends React.Component {
       });
   }
 
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
   createTable = props => {};
 
   render() {
@@ -223,10 +228,6 @@ class CreateTablePage extends React.Component {
       </div>
     );
   }
-
-  handleChange = props => {
-    return;
-  };
 
   updateTable = props => {
     return;
