@@ -1,8 +1,7 @@
 //HomePage
 
 import React from "react";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -13,16 +12,16 @@ function HomePage() {
 
       <div>
         <h2>Already have an account?</h2>
-        <button>
-          <Login />
-        </button>
+        <Link to={"/login"}>
+          <button>Login</button>
+        </Link>
       </div>
 
       <div>
         <h2>No account yet?</h2>
-        <button>
-          <Signup />
-        </button>
+        <Link to={"/signup"}>
+          <button>Signup</button>
+        </Link>
       </div>
     </div>
   );
