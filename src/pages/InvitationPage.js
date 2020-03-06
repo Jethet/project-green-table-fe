@@ -1,6 +1,6 @@
 import React from "react";
 
-function Invitation() {
+function InvitationPage() {
   return (
     <div>
       <h1>Guest Invitation Page</h1>
@@ -8,4 +8,4 @@ function Invitation() {
   );
 }
 
-export default Invitation;
+export default InvitationPage;

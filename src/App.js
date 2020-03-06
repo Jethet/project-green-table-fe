@@ -19,14 +19,13 @@ class App extends Component {
         <Navbar />
 
         <Switch>
-
           <Route exact path="/" component={Home} />
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
 
-          <PrivateRoute exact path="/table" component={CreateTablePage} />
-
           <PrivateRoute exact path="/private" component={Private} />
+          <PrivateRoute exact path="/table" component={CreateTablePage} />
+          <PrivateRoute exact path="/profile" component={ProfilePage} />
         </Switch>
       </div>
     );
