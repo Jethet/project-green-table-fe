@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
-    <div>
+    <div id="background-image-homepage">
       <div>
         <h1>Welcome Page</h1>
       </div>

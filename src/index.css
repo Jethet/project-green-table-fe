@@ -1,0 +1,48 @@
+body {
+  padding: 20px;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+@font-face {
+  font-family: "bilalregular";
+  src: url("./bilal-d99mx-webfont.woff2") format("woff2"),
+    url("./bilal-d99mx-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#background-image-homepage {
+  height: 100vh;
+  background-image: url("/images/background1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav.navbar {
+  display: flex;
+  padding: 0px 20px;
+  background: #686de0;
+}
+
+button.navbar-button {
+  padding: 5px 20px;
+  width: 100px;
+  margin: 15px 10px;
+  border-radius: 3px;
+}
+
+#home-btn {
+  color: white;
+  text-decoration: none;
+}
