@@ -5,12 +5,12 @@ import { withAuth } from "./../lib/Auth";
 class Navbar extends Component {
   render() {
     const { user, logout, isLoggedIn } = this.props;
-
+    console.log('isLoggedIn :', isLoggedIn);
     return (
       <nav className="navbar">
         {isLoggedIn ? (
           <div>
-            <Link to={"/"} id="homePage-btn">
+            <Link to={"/table"} id="table-page-btn">
               Home
             </Link>
             <Link to={"/profile"} id="profilePage-btn">
