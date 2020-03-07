@@ -11,6 +11,10 @@ function HomePage() {
       </div>
 
       <div>
+        <h1>What is the Green Table?</h1>
+        <p>Description</p>
+      </div>
+      <div>
         <h2>Already have an account?</h2>
         <Link to={"/login"}>
           <button>Login</button>
