@@ -60,15 +60,7 @@ class CreateTablePage extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const {
-      date,
-      time,
-      address,
-      city,
-      userId,
-      foodAndDrinks,
-      guests
-    } = this.state;
+    const { date, time, address, city, userId, foodAndDrinks, guests } = this.state;
     axios
       .post("http://localhost:5000/api/table", {
         date,
@@ -103,24 +95,20 @@ class CreateTablePage extends React.Component {
   render() {
     return (
       <div>
+        <div id="home-button-div" style="overflow-y: scroll">
+          <img src="/images/homelink.png" id="home-btn" alt="HOME" />
+          />
+        </div>
         <form onSubmit={this.handleSubmit}>
           <h1>Create a table!</h1>
           <ul>
             <li>
               <label>Date:</label>
-              <input
-                type="date"
-                value={this.state.date}
-                onChange={this.handleChange}
-              />
+              <input type="date" value={this.state.date} onChange={this.handleChange} />
             </li>
             <li>
               <label>Time:</label>
-              <input
-                type="time"
-                value={this.state.time}
-                onChange={this.handleChange}
-              />
+              <input type="time" value={this.state.time} onChange={this.handleChange} />
             </li>
             <li>
               <label>Address:</label>
@@ -132,11 +120,7 @@ class CreateTablePage extends React.Component {
             </li>
             <li>
               <label>City:</label>
-              <input
-                type="text"
-                value={this.state.city}
-                onChange={this.handleChange}
-              />
+              <input type="text" value={this.state.city} onChange={this.handleChange} />
             </li>
           </ul>
         </form>

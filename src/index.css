@@ -59,11 +59,6 @@ body {
   font-family: "Architects Daughter", cursive;
 }
 
-.click-button:hover {
-  color: rgb(250, 202, 10);
-  cursor: pointer;
-}
-
 .signup-container {
   margin: 10%;
 }
@@ -115,19 +110,19 @@ body {
   margin: 10%;
 }
 
-nav.navbar {
-  display: flex;
-  padding: 0px 20px;
-}
-
-button.navbar-button {
-  padding: 5px 20px;
-  width: 100px;
-  margin: 15px 10px;
-  border-radius: 3px;
-}
-
-#home-btn {
-  color: white;
+#profile-page-button {
+  margin-right: 10px;
+  border: none;
   text-decoration: none;
+  margin-top: 5px;
+  width: 20px;
 }
+
+#table-page-button {
+  margin-left: 10px;
+  border: none;
+  text-decoration: none;
+  margin-top: 5px;
+  width: 20px;
+}
+

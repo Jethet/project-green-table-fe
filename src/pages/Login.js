@@ -44,6 +44,14 @@ class Login extends Component {
           </div>
 
           <input type="submit" value="Login" className="click-button" />
+
+          {/* <div>
+            <p>No account yet?</p>
+            <Link to={"/signup"} id="click-button-signup">
+              {" "}
+              Signup
+            </Link>
+          </div> */}
         </form>
 
         <div className="image-box">
