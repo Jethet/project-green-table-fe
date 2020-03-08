@@ -20,31 +20,46 @@ class Signup extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div>
-        <h1>Sign Up</h1>
+      <div className="signup-container">
+        <h1 className="signup-header">Sign Up for the Green Table!</h1>
 
         <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={this.handleChange}
-          />
-
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-
-          <input type="submit" value="Signup" />
+          <div className="form-fields">
+            <label>Username:</label>
+            <input
+              type="text"
+              name="username"
+              value={username}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-fields">
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <input type="submit" value="Signup" className="click-button" />
+          </div>
+          <div>
+            <p>Already have account?</p>
+            <Link to={"/login"} id="click-button-signup">
+              {" "}
+              Login
+            </Link>
+          </div>
         </form>
-
-        <p>Already have account?</p>
-        <Link to={"/login"}> Login</Link>
+        <div className="image-box">
+          <img
+            src="/images/greenTable.jpg"
+            className="green-table"
+            alt="Image of Green Table"
+          />
+        </div>
       </div>
     );
   }

@@ -20,28 +20,39 @@ class Login extends Component {
     const { username, password } = this.state;
 
     return (
-      <div>
-        <h1>Login</h1>
+      <div id="login-container">
+        <h1 className="signup-header">Log in for the Green Table!</h1>
 
         <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={this.handleChange}
-          />
+          <div className="form-fields">
+            <label>Username:</label>
+            <input
+              type="text"
+              name="username"
+              value={username}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-fields">
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+            />
+          </div>
 
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-
-          <input type="submit" value="Login" />
+          <input type="submit" value="Login" className="click-button" />
         </form>
+
+        <div className="image-box">
+          <img
+            src="/images/greenTable.jpg"
+            className="green-table"
+            alt="Image of Green Table"
+          />
+        </div>
       </div>
     );
   }
