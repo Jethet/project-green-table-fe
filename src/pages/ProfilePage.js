@@ -21,25 +21,31 @@ class ProfilePage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="profile-background">
+        <div className="profile-container"></div>
         <form onSubmit={this.handleSubmit}>
           <h1>Your Profile Page</h1>
-          <ul>
-            <li>
-              <label>Name:</label>
-              <button>Edit name</button>
-              <input type="name" value={this.state.name} onChange={this.handleChange} />
-            </li>
-            <li>
-              <label>Password:</label>
-              <button>Edit name</button>
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.handleChange}
-              />
-            </li>
-          </ul>
+          <div>
+            <span className="profile-image">
+              <img src="{{ user.imageURL }}" class="profile-page-image" alt="" />
+            </span>
+            <ul>
+              <li>
+                <label>Name:</label>
+                <button>Edit name</button>
+                <input type="name" value={this.state.name} onChange={this.handleChange} />
+              </li>
+              <li>
+                <label>Password:</label>
+                <button>Edit name</button>
+                <input
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
+              </li>
+            </ul>
+          </div>
         </form>
       </div>
     );

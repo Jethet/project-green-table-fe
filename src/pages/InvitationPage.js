@@ -3,8 +3,10 @@ import axios from "axios";
 
 function InvitationPage() {
   return (
-    <div>
-      <h1>Guest Invitation Page</h1>
+    <div className="invitation-background">
+      <div className="invitation-container">
+        <h1>Guest Invitation Page</h1>
+      </div>
     </div>
   );
 }

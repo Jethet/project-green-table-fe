@@ -8,17 +8,20 @@ class Navbar extends Component {
     const { user, logout, isLoggedIn } = this.props;
     console.log("isLoggedIn :", isLoggedIn);
     return (
-      <nav>
+      <nav className="navbar">
         {isLoggedIn ? (
-          <div>
-            <Link to={"/table"}>
-              <img src="/images/homelink.png" id="table-page-button" alt="HOME" />
-            </Link>
-            
-            <Link to={"/profile"} >
-              <img src="/images/user2.png" id="profile-page-button" alt="PROFILE" />
-            </Link>
-          </div>
+          <ul>
+            <li>
+              <Link to={"/table"}>
+                <img src="/images/homelink.png" id="table-page-button" alt="HOME" />
+              </Link>
+            </li>
+            <li>
+              <Link to={"/profile"}>
+                <img src="/images/user2.png" id="profile-page-button" alt="PROFILE" />
+              </Link>
+            </li>
+          </ul>
         ) : null}
       </nav>
     );

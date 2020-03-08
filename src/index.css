@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   font-family: "Architects Daughter", cursive;
   height: 100%;
   display: flex;
@@ -19,13 +20,13 @@ body, html {
   background-repeat: no-repeat;
   width: auto;
   background-size: 100% 100%;
-  overflow-x: hidden; 
-  overflow-x: auto; 
+  overflow-x: hidden;
+  overflow-x: auto;
   background-attachment: fixed;
 }
 
 .home-container {
-  margin: 5%
+  margin: 5%;
 }
 
 #image-box-home {
@@ -112,8 +113,8 @@ body, html {
   background-repeat: no-repeat;
   width: auto;
   background-size: 100% 100%;
-  overflow-x: hidden; 
-  overflow-x: auto; 
+  overflow-x: hidden;
+  overflow-x: auto;
   background-attachment: fixed;
 }
 
@@ -178,12 +179,12 @@ body, html {
   background-repeat: no-repeat;
   width: auto;
   background-size: 100% 100%;
-  overflow-x: hidden; 
-  overflow-x: auto; 
+  overflow-x: hidden;
+  overflow-x: auto;
   background-attachment: fixed;
 }
 
-#login-container {
+.login-container {
   margin: 10%;
 }
 
@@ -200,6 +201,31 @@ body, html {
   margin-right: auto;
 }
 
+/* NAVBAR */
+
+.navbar ul li {
+  list-style: none;
+  margin: 5px;
+  float: right;
+}
+
+/* CREATE TABLE PAGE */
+.table-background {
+  height: 100vh;
+  background: url("/images/background1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: auto;
+  background-size: 100% 100%;
+  overflow-x: hidden;
+  overflow-x: auto;
+  background-attachment: fixed;
+}
+
+.table-container {
+  margin: 10%;
+}
+
 #profile-page-button {
   margin-right: 10px;
   border: none;
@@ -214,4 +240,44 @@ body, html {
   text-decoration: none;
   margin-top: 5px;
   width: 20px;
+}
+
+/* INVITATION PAGE */
+.invitation-background {
+  height: 100vh;
+  background: url("/images/background1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: auto;
+  background-size: 100% 100%;
+  overflow-x: hidden;
+  overflow-x: auto;
+  background-attachment: fixed;
+}
+
+.invitation-container {
+  margin: 10%;
+}
+
+/* PROFILE PAGE */
+.profile-background {
+  height: 100vh;
+  background: url("/images/background1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: auto;
+  background-size: 100% 100%;
+  overflow-x: hidden;
+  overflow-x: auto;
+  background-attachment: fixed;
+}
+
+.profile-container {
+  margin: 10%;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
 }
