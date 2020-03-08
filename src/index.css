@@ -4,21 +4,45 @@
   box-sizing: border-box;
 }
 
-body,
-#background-image-homepage {
+body, html {
+  font-family: "Architects Daughter", cursive;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* HOMEPAGE */
+.home-background {
   height: 100vh;
   background: url("/images/background1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   width: auto;
   background-size: 100% 100%;
+  overflow-x: hidden; 
+  overflow-x: auto; 
+  background-attachment: fixed;
 }
 
-body {
-  font-family: "Architects Daughter", cursive;
-  margin: 5%;
+.home-container {
+  margin: 5%
+}
+
+#image-box-home {
   display: flex;
   justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#green-table-home {
+  display: flex;
+  position: absolute;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10%;
 }
 
 #home-header {
@@ -48,26 +72,70 @@ body {
   margin-right: 5%;
 }
 
-.click-button {
+#signin-button {
   background-color: rgb(10, 14, 247);
   color: blanchedalmond;
-  padding: 10px;
+  padding: 5px 10px;
   border-radius: 20%;
   border-style: none;
-  transition-duration: 0.4s;
-  margin-top: 10px;
+  margin-left: 5px;
   font-family: "Architects Daughter", cursive;
+  font-size: 16px;
+}
+
+#signup {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+  margin-top: 15px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#signup-button {
+  background-color: rgb(10, 14, 247);
+  color: blanchedalmond;
+  padding: 5px 10px;
+  border-radius: 20%;
+  border-style: none;
+  margin-left: 5px;
+  font-family: "Architects Daughter", cursive;
+  font-size: 16px;
+}
+
+/* SIGNUP PAGE */
+.signup-background {
+  height: 100vh;
+  background: url("/images/backgroundOrange.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: auto;
+  background-size: 100% 100%;
+  overflow-x: hidden; 
+  overflow-x: auto; 
+  background-attachment: fixed;
 }
 
 .signup-container {
   margin: 10%;
 }
 
-.image-box {
+#button-signup {
+  background-color: rgb(10, 14, 247);
+  color: blanchedalmond;
+  padding: 5px;
+  border-radius: 20%;
+  border-style: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 16px;
+}
+
+#image-box-signup {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 10%;
+  margin-top: 50px;
+  margin-bottom: 5%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -77,6 +145,7 @@ body {
   position: absolute;
   max-width: 200px;
   height: auto;
+  border-radius: 10%;
 }
 
 .signup-header {
@@ -91,23 +160,44 @@ body {
   margin-right: 8px;
 }
 
-.account {
-  margin-bottom: 40px;
-  margin-top: 10px;
-}
-
-#click-button-signup {
+.click-button-signup {
   background-color: rgb(10, 14, 247);
   color: blanchedalmond;
   padding: 5px;
   border-radius: 20%;
   border-style: none;
-  transition-duration: 0.4s;
   font-family: "Architects Daughter", cursive;
+  font-size: 16px;
+}
+
+/* LOGIN PAGE */
+.login-background {
+  height: 100vh;
+  background: url("/images/backgroundOrange.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: auto;
+  background-size: 100% 100%;
+  overflow-x: hidden; 
+  overflow-x: auto; 
+  background-attachment: fixed;
 }
 
 #login-container {
   margin: 10%;
+}
+
+#no-account {
+  margin-top: 20px;
+}
+
+#image-box-login {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #profile-page-button {
@@ -125,4 +215,3 @@ body {
   margin-top: 5px;
   width: 20px;
 }
-

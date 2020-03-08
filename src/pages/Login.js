@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
+import axios from "axios";
 
 class Login extends Component {
   state = { username: "", password: "" };
@@ -20,6 +21,7 @@ class Login extends Component {
     const { username, password } = this.state;
 
     return (
+      <div className="login-background">
       <div id="login-container">
         <h1 className="signup-header">Log in for the Green Table!</h1>
 
@@ -42,25 +44,26 @@ class Login extends Component {
               onChange={this.handleChange}
             />
           </div>
-
-          <input type="submit" value="Login" className="click-button" />
-
-          {/* <div>
+          <div>
+            <input type="submit" value="Login" className="click-button-signup" />
+          </div>
+          <div id="no-account">
             <p>No account yet?</p>
-            <Link to={"/signup"} id="click-button-signup">
+            {/* <Link to={"/signup"} id="click-button-signup">
               {" "}
               Signup
-            </Link>
-          </div> */}
+            </Link> */}
+          </div>
         </form>
 
-        <div className="image-box">
+        <div id="image-box-login">
           <img
             src="/images/greenTable.jpg"
             className="green-table"
             alt="Image of Green Table"
           />
         </div>
+      </div>
       </div>
     );
   }
