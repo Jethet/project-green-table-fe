@@ -49,7 +49,6 @@ function HomePage() {
             alt="Image of Green Table"
           />
         </div>
-        <div></div>
       </div>
     </div>
   );

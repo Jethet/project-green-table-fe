@@ -44,12 +44,12 @@ class CreateTablePage extends React.Component {
           isGlutenFree: false
         },
         {
-          dishType: "nonAlcohol",
+          dishType: "nonAlcoholDrink",
           nameToDisplay: "Non-alcoholic drinks",
           isSelected: false
         },
         {
-          dishType: "alcohol",
+          dishType: "alcoholDrink",
           nameToDisplay: "Alcoholic drinks",
           isSelected: false
         }
@@ -58,19 +58,23 @@ class CreateTablePage extends React.Component {
     };
   }
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     const { date, time, address, city, userId, foodAndDrinks, guests } = this.state;
     axios
-      .post("http://localhost:5000/api/table", {
-        date,
-        time,
-        address,
-        city,
-        userId,
-        foodAndDrinks,
-        guests
-      })
+      .post(
+        "http://localhost:5000/table",
+        {
+          date,
+          time,
+          address,
+          city,
+          userId,
+          foodAndDrinksArray: foodAndDrinks,
+          guestsIdsArray: guests
+        },
+        { withCredentials: true }
+      )
       .then(() => {
         // this.props.getData();
         this.setState({
@@ -79,15 +83,78 @@ class CreateTablePage extends React.Component {
           address: "",
           city: "",
           userId: "",
-          foodAndDrinks: [],
+          foodAndDrinks: [
+            {
+              dishType: "hotDish",
+              nameToDisplay: "Hot dish",
+              isSelected: false,
+              isVegetarian: false,
+              isVegan: false,
+              isGlutenFree: false
+            },
+            {
+              dishType: "coldDish",
+              nameToDisplay: "Cold dish",
+              isSelected: false,
+              isVegetarian: false,
+              isVegan: false,
+              isGlutenFree: false
+            },
+            {
+              dishType: "snack",
+              nameToDisplay: "Snack",
+              isSelected: false,
+              isVegetarian: false,
+              isVegan: false,
+              isGlutenFree: false
+            },
+            {
+              dishType: "desert",
+              nameToDisplay: "Desert",
+              isSelected: false,
+              isVegetarian: false,
+              isVegan: false,
+              isGlutenFree: false
+            },
+            {
+              dishType: "nonAlcohol",
+              nameToDisplay: "Non-alcoholic drinks",
+              isSelected: false
+            },
+            {
+              dishType: "alcohol",
+              nameToDisplay: "Alcoholic drinks",
+              isSelected: false
+            }
+          ],
           guests: []
-        }).catch(err => console.log(err));
-      });
-  }
+        });
+      })
+      .catch(err => console.log(err));
+  };
 
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  };
+
+  handleTickBox = event => {
+    const { name, checked } = event.target;
+    const values = name.split("#");
+    const dishType = values[0]; // "hotDish"
+    const foodPref = values[1]; //  "isVegan"
+
+    const updatedFoodAndDrinks = this.state.foodAndDrinks.map(el => {
+      if (el.dishType === dishType) {
+        el[foodPref] = !el[foodPref];
+
+        //el["isVegan"] = !el["isVegan"]
+        //el.isVegan = !el.isVegan
+      }
+      return el;
+    });
+    this.setState({ foodAndDrinks: updatedFoodAndDrinks });
+    console.log(dishType, foodPref);
   };
 
   createTable = props => {};
@@ -96,7 +163,8 @@ class CreateTablePage extends React.Component {
     return (
       <div className="table-background">
         <div className="table-container">
-          <div id="home-button-div" style="overflow-y: scroll">
+          {/*   <div id="home-button-div" style="overflow-y: scroll">       */}
+          <div id="home-button-div">
             <img src="/images/homelink.png" id="home-btn" alt="HOME" />
             />
           </div>
@@ -105,25 +173,42 @@ class CreateTablePage extends React.Component {
             <ul>
               <li>
                 <label>Date:</label>
-                <input type="date" value={this.state.date} onChange={this.handleChange} />
+                <input
+                  type="date"
+                  name="date"
+                  value={this.state.date}
+                  onChange={this.handleChange}
+                />
               </li>
               <li>
                 <label>Time:</label>
-                <input type="time" value={this.state.time} onChange={this.handleChange} />
+                <input
+                  type="time"
+                  name="time"
+                  value={this.state.time}
+                  onChange={this.handleChange}
+                />
               </li>
               <li>
                 <label>Address:</label>
                 <input
                   type="text"
+                  name="address"
                   value={this.state.address}
                   onChange={this.handleChange}
                 />
               </li>
               <li>
                 <label>City:</label>
-                <input type="text" value={this.state.city} onChange={this.handleChange} />
+                <input
+                  type="text"
+                  name="city"
+                  value={this.state.city}
+                  onChange={this.handleChange}
+                />
               </li>
             </ul>
+            <button type="submit">Create table</button>
           </form>
 
           <h2>I will bring this to the table:</h2>
@@ -164,6 +249,7 @@ class CreateTablePage extends React.Component {
             </li>
           </ul> */}
 
+          {/*       form for foodAndDrinks */}
           {this.state.foodAndDrinks.map(dishObject => {
             return (
               <form>
@@ -172,18 +258,19 @@ class CreateTablePage extends React.Component {
                   <input
                     checked={dishObject.isSelected}
                     type="radio"
-                    name="hotDish"
-                    id=""
+                    name={`${dishObject.dishType}#isSelected`}
+                    onChange={this.handleTickBox}
                   />
                 </label>
+
                 <label>
                   Vegetarian
                   <input
                     checked={dishObject.isVegetarian}
                     value="Vegetarian"
                     type="radio"
-                    name="isVegetarian"
-                    id=""
+                    name={`${dishObject.dishType}#isVegetarian`}
+                    onChange={this.handleTickBox}
                   />
                 </label>
                 <label>
@@ -192,8 +279,8 @@ class CreateTablePage extends React.Component {
                     checked={dishObject.isVegan}
                     value="Vegan"
                     type="radio"
-                    name="isVegan"
-                    id=""
+                    name={`${dishObject.dishType}#isVegan`}
+                    onChange={this.handleTickBox}
                   />
                 </label>
 
@@ -203,8 +290,8 @@ class CreateTablePage extends React.Component {
                     checked={dishObject.isGlutenFree}
                     value="Gluten-free"
                     type="radio"
-                    name="isGlutenFree"
-                    id=""
+                    name={`${dishObject.dishType}#isGlutenFree`}
+                    onChange={this.handleTickBox}
                   />
                 </label>
               </form>

@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import authService from "./auth-service"; // IMPORT functions for axios requests to API
+import Axios from "axios";
 const { Consumer, Provider } = React.createContext();
 
 // HOC to create a Consumer
@@ -56,6 +57,7 @@ class AuthProvider extends React.Component {
   }
 
   signup = (username, password) => {
+//  axios.post("http://localhost:5000//auth/signup", {username, password}) 
     authService
       .signup({ username, password })
       .then(user => this.setState({ isLoggedIn: true, user }))

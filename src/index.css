@@ -122,14 +122,21 @@ html {
   margin: 10%;
 }
 
-#button-signup {
+#have-account {
+  margin-top: 20px;
+}
+
+#button-have-account {
   background-color: rgb(10, 14, 247);
   color: blanchedalmond;
   padding: 5px;
   border-radius: 20%;
   border-style: none;
+  text-decoration: none;
   font-family: "Architects Daughter", cursive;
   font-size: 16px;
+  margin-top: 15px;
+  max-width: 55px;
 }
 
 #image-box-signup {
@@ -245,7 +252,7 @@ html {
 /* INVITATION PAGE */
 .invitation-background {
   height: 100vh;
-  background: url("/images/background1.jpg");
+  background: url("/images/backgroundYellow.jpg");
   background-position: center;
   background-repeat: no-repeat;
   width: auto;

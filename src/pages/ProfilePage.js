@@ -7,9 +7,20 @@ class ProfilePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: this.props.username,
-      description: this.props.password
+      tables: [],
+      user: null
     };
+  }
+  componentDidMount() {
+    // Make axios get request to get user profile  // set it in the state
+    axios.get("http://localhost:3000/profile").then(response => {
+      this.setState({ profile: response.data });
+    });
+    // then: make another axios request to get all tables of user
+    // set it in the state
+    axios.get("http://localhost:3000/table/all").then(response => {
+      this.setState({ table: response.data });
+    });
   }
 
   handleFormSubmit = event => {};
@@ -25,27 +36,35 @@ class ProfilePage extends Component {
         <div className="profile-container"></div>
         <form onSubmit={this.handleSubmit}>
           <h1>Your Profile Page</h1>
-          <div>
-            <span className="profile-image">
-              <img src="{{ user.imageURL }}" class="profile-page-image" alt="" />
-            </span>
-            <ul>
-              <li>
-                <label>Name:</label>
-                <button>Edit name</button>
-                <input type="name" value={this.state.name} onChange={this.handleChange} />
-              </li>
-              <li>
-                <label>Password:</label>
-                <button>Edit name</button>
-                <input
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                />
-              </li>
-            </ul>
-          </div>
+          {!this.state.user ? (
+            "loading"
+          ) : (
+            <div>
+              <span className="profile-image">
+                <img src={this.state.user.imageURL} class="profile-page-image" alt="" />
+              </span>
+              <ul>
+                <li>
+                  <label>Name:</label>
+                  <button>Edit name</button>
+                  <input
+                    type="name"
+                    value={this.state.user.name}
+                    onChange={this.handleChange}
+                  />
+                </li>
+                <li>
+                  <label>Password:</label>
+                  <button>Edit name</button>
+                  <input
+                    type="password"
+                    value={this.state.user.password}
+                    onChange={this.handleChange}
+                  />
+                </li>
+              </ul>
+            </div>
+          )}
         </form>
       </div>
     );

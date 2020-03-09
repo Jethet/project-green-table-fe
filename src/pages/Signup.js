@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { withAuth } from "./../lib/Auth";
-import axios from "axios";
+import { withAuth } from "./../lib/Auth"; // used to connect/consume from AuthProvider
 
 class Signup extends Component {
   state = { username: "", password: "" };
@@ -11,6 +10,7 @@ class Signup extends Component {
     const { username, password } = this.state;
 
     this.props.signup(username, password);
+    // call signup() method from the AuthProvider
   };
 
   handleChange = event => {
@@ -47,13 +47,12 @@ class Signup extends Component {
             <div>
               <input type="submit" value="Signup" className="click-button-signup" />
             </div>
-            <div>
+            <div id="have-account">
               <p>Already have account?</p>
-              <Link to={"/login"} id="button-signup">
-                {" "}
-                Login
-              </Link>
             </div>
+            <Link to={"/login"} style={{ textDecoration: "none" }}>
+              <div id="button-have-account">Login</div>
+            </Link>
           </form>
           <div id="image-box-signup">
             <img
@@ -69,3 +68,6 @@ class Signup extends Component {
 }
 
 export default withAuth(Signup);
+// connect/consume from AuthProvider
+// On the current component it adds props
+// from the AuthProvider -> { isLoggedIn, user, signup, login, logout}

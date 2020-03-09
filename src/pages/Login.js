@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
   state = { username: "", password: "" };
@@ -49,10 +49,7 @@ class Login extends Component {
             </div>
             <div id="no-account">
               <p>No account yet?</p>
-              {/* <Link to={"/signup"} id="click-button-signup">
-              {" "}
-              Signup
-            </Link> */}
+              <Link to={"/signup"}> Signup</Link>
             </div>
           </form>
 
