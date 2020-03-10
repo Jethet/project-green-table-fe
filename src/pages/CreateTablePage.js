@@ -62,6 +62,9 @@ class CreateTablePage extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     const { date, time, address, city, userId, foodAndDrinks, guests } = this.state;
+    const selectedFoodAndDrinks = foodAndDrinks.filter(el => {
+      return el.isSelected;
+    });
     axios
       .post(
         `${process.env.REACT_APP_API_URL}/table`,
@@ -71,7 +74,7 @@ class CreateTablePage extends React.Component {
           address,
           city,
           userId,
-          foodAndDrinksArray: foodAndDrinks,
+          foodAndDrinksArray: selectedFoodAndDrinks,
           guestsIdsArray: guests
         },
         { withCredentials: true }
@@ -118,12 +121,12 @@ class CreateTablePage extends React.Component {
               isGlutenFree: false
             },
             {
-              dishType: "nonAlcohol",
+              dishType: "nonAlcoholDrink",
               nameToDisplay: "Non-alcoholic drinks",
               isSelected: false
             },
             {
-              dishType: "alcohol",
+              dishType: "alcoholDrink",
               nameToDisplay: "Alcoholic drinks",
               isSelected: false
             }
@@ -260,9 +263,11 @@ class CreateTablePage extends React.Component {
                 </label>
               </form>
             );
-            {/* <div>
+            {
+              /* <div>
               <SearchBar friendsByUsername={this.searchResult} />
-            </div>; */}
+            </div>; */
+            }
           })}
         </div>
       </div>
@@ -272,7 +277,7 @@ class CreateTablePage extends React.Component {
   // searchResult = oneUser => {
   //   // e.preventDefault();
   //   axios
-  //     .get("http://localhost:5000/", 
+  //     .get("http://localhost:5000/",
   //     { userName: oneUser }, { withCredentials: true })
   //     .then(result => {
   //       return result;

@@ -292,7 +292,7 @@ html {
   background: url("/images/backgroundYellow.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  width: auto;
+  width: 100vw;
   background-size: 100% 100%;
   overflow-x: hidden;
   overflow-x: auto;
@@ -308,6 +308,51 @@ html {
   width: 120px;
   height: 120px;
   border-radius: 50%;
+}
+
+#tables-list {
+  list-style: none;
+}
+
+#signout-button {
+  background-color: rgb(10, 14, 247);
+  color: blanchedalmond;
+  padding: 3px;
+  border-radius: 20%;
+  border-style: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.button-container {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  flex-direction: column;
+  justify-items: right;
+  /* height: 100vh; */
+  display: flex;
+}
+.button-container .button-holder {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  right: 0;
+  bottom: 0;
+}
+
+#credits-button {
+  background-color: rgb(10, 14, 247);
+  color: blanchedalmond;
+  padding: 3px;
+  border-radius: 20%;
+  border-style: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 /* CREDITS PAGE */
@@ -328,10 +373,10 @@ html {
   margin-top: 50px;
 }
 
-#credits-title{
+#credits-title {
   margin-top: 50px;
 }
-.credits{
+.credits {
   margin-top: 30px;
   font-size: 18px;
 }
@@ -341,5 +386,5 @@ nav.navbar {
   background-color: transparent !important;
   position: absolute;
   list-style: none;
-  margin-top: 7px;
+  margin-top: 8px;
 }
