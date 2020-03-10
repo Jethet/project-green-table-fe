@@ -7,21 +7,21 @@ class Navbar extends Component {
   render() {
     const { user, logout, isLoggedIn } = this.props;
     console.log("isLoggedIn :", isLoggedIn);
+
     return (
       <nav className="navbar">
         {isLoggedIn ? (
-          <ul>
-            <li>
-              <Link to={"/table"}>
-                <img src="/images/homelink.png" id="table-page-button" alt="HOME" />
-              </Link>
-            </li>
-            <li>
+          
+              <div>
+                <Link to={"/table"}>
+                  <img src="/images/homelink.png" id="table-home-link" alt="HOME" />
+                </Link>
+              
+            
               <Link to={"/profile"}>
-                <img src="/images/user2.png" id="profile-page-button" alt="PROFILE" />
+                <img src="/images/user2.png" id="profile-page-link" alt="PROFILE" />
               </Link>
-            </li>
-          </ul>
+              </div>
         ) : null}
       </nav>
     );

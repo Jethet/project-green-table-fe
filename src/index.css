@@ -208,14 +208,6 @@ html {
   margin-right: auto;
 }
 
-/* NAVBAR */
-
-.navbar ul li {
-  list-style: none;
-  margin: 5px;
-  float: right;
-}
-
 /* CREATE TABLE PAGE */
 .table-background {
   height: 100vh;
@@ -231,22 +223,49 @@ html {
 
 .table-container {
   margin: 10%;
+  margin-top: 40px;
 }
 
-#profile-page-button {
-  margin-right: 10px;
+#date-address {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+  margin-top: 35px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#date-address ul li {
+  list-style: none;
+}
+
+#table-home-link {
+  margin-left: 15px;
   border: none;
   text-decoration: none;
   margin-top: 5px;
   width: 20px;
 }
 
-#table-page-button {
+#profile-page-link {
   margin-left: 10px;
   border: none;
   text-decoration: none;
   margin-top: 5px;
   width: 20px;
+}
+
+#submit-table {
+  background-color: rgb(10, 14, 247);
+  color: blanchedalmond;
+  padding: 3px;
+  border-radius: 20%;
+  border-style: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 /* INVITATION PAGE */
@@ -264,12 +283,13 @@ html {
 
 .invitation-container {
   margin: 10%;
+  margin-top: 40px;
 }
 
 /* PROFILE PAGE */
 .profile-background {
   height: 100vh;
-  background: url("/images/background1.jpg");
+  background: url("/images/backgroundYellow.jpg");
   background-position: center;
   background-repeat: no-repeat;
   width: auto;
@@ -281,10 +301,45 @@ html {
 
 .profile-container {
   margin: 10%;
+  margin-top: 40px;
 }
 
 .profile-image {
   width: 120px;
   height: 120px;
   border-radius: 50%;
+}
+
+/* CREDITS PAGE */
+.credits-background {
+  height: 100vh;
+  background: url("/images/backgroundStripe1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: auto;
+  background-size: 100% 100%;
+  overflow-x: hidden;
+  overflow-x: auto;
+  background-attachment: fixed;
+}
+
+.credits-container {
+  margin: 10%;
+  margin-top: 50px;
+}
+
+#credits-title{
+  margin-top: 50px;
+}
+.credits{
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+/* NAVBAR */
+nav.navbar {
+  background-color: transparent !important;
+  position: absolute;
+  list-style: none;
+  margin-top: 7px;
 }

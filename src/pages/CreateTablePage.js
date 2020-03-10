@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class CreateTablePage extends React.Component {
   constructor(props) {
@@ -63,7 +64,7 @@ class CreateTablePage extends React.Component {
     const { date, time, address, city, userId, foodAndDrinks, guests } = this.state;
     axios
       .post(
-        "http://localhost:5000/table",
+        `${process.env.REACT_APP_API_URL}/table`,
         {
           date,
           time,
@@ -163,93 +164,56 @@ class CreateTablePage extends React.Component {
     return (
       <div className="table-background">
         <div className="table-container">
-          {/*   <div id="home-button-div" style="overflow-y: scroll">       */}
-          <div id="home-button-div">
-            <img src="/images/homelink.png" id="home-btn" alt="HOME" />
-            />
-          </div>
           <form onSubmit={this.handleSubmit}>
-            <h1>Create a table!</h1>
-            <ul>
-              <li>
-                <label>Date:</label>
-                <input
-                  type="date"
-                  name="date"
-                  value={this.state.date}
-                  onChange={this.handleChange}
-                />
-              </li>
-              <li>
-                <label>Time:</label>
-                <input
-                  type="time"
-                  name="time"
-                  value={this.state.time}
-                  onChange={this.handleChange}
-                />
-              </li>
-              <li>
-                <label>Address:</label>
-                <input
-                  type="text"
-                  name="address"
-                  value={this.state.address}
-                  onChange={this.handleChange}
-                />
-              </li>
-              <li>
-                <label>City:</label>
-                <input
-                  type="text"
-                  name="city"
-                  value={this.state.city}
-                  onChange={this.handleChange}
-                />
-              </li>
-            </ul>
-            <button type="submit">Create table</button>
+            <div>
+              <h1>Create a table!</h1>
+            </div>
+            <div id="date-address">
+              <ul>
+                <li>
+                  <label>Date:</label>
+                  <input
+                    type="date"
+                    name="date"
+                    value={this.state.date}
+                    onChange={this.handleChange}
+                  />
+                </li>
+                <li>
+                  <label>Time:</label>
+                  <input
+                    type="time"
+                    name="time"
+                    value={this.state.time}
+                    onChange={this.handleChange}
+                  />
+                </li>
+                <li>
+                  <label>Address:</label>
+                  <input
+                    type="text"
+                    name="address"
+                    value={this.state.address}
+                    onChange={this.handleChange}
+                  />
+                </li>
+                <li>
+                  <label>City:</label>
+                  <input
+                    type="text"
+                    name="city"
+                    value={this.state.city}
+                    onChange={this.handleChange}
+                  />
+                </li>
+              </ul>
+            </div>
+            <button type="submit" id="submit-table">
+              Create table
+            </button>
           </form>
 
-          <h2>I will bring this to the table:</h2>
-
-          {/* <li>hot dish</li>
-            <select value={this.state.value} onChange={this.handleChange}>
-              <option value="vegetarian">Vegetarian</option>
-              <option value="vegan">Vegan</option>
-              <option value="gluten-free">Gluten-free</option>
-            </select>
-
-            <li>cold dish</li>
-            <select value={this.state.value} onChange={this.handleChange}>
-              <option value="vegetarian">Vegetarian</option>
-              <option value="vegan">Vegan</option>
-              <option value="gluten-free">Gluten-free</option>
-            </select>
-            <li>snack</li>
-            <select value={this.state.value} onChange={this.handleChange}>
-              <option value="vegetarian">Vegetarian</option>
-              <option value="vegan">Vegan</option>
-              <option value="gluten-free">Gluten-free</option>
-            </select>
-            <li>desert</li>
-            <select value={this.state.value} onChange={this.handleChange}>
-              <option value="vegetarian">Vegetarian</option>
-              <option value="vegan">Vegan</option>
-              <option value="gluten-free">Gluten-free</option>
-            </select> */}
-          {/* <ul>
-            <li>
-              <label>drinks non-alcohol</label>
-              <input value={this.state.value} onChange={this.handleChange} />
-            </li>
-            <li>
-              <label>drinks alcohol</label>
-              <input value={this.state.value} onChange={this.handleChange} />
-            </li>
-          </ul> */}
-
-          {/*       form for foodAndDrinks */}
+          <h3>I will bring this to the table:</h3>
           {this.state.foodAndDrinks.map(dishObject => {
             return (
               <form>
@@ -296,11 +260,27 @@ class CreateTablePage extends React.Component {
                 </label>
               </form>
             );
+            {/* <div>
+              <SearchBar friendsByUsername={this.searchResult} />
+            </div>; */}
           })}
         </div>
       </div>
     );
   }
+
+  // searchResult = oneUser => {
+  //   // e.preventDefault();
+  //   axios
+  //     .get("http://localhost:5000/", 
+  //     { userName: oneUser }, { withCredentials: true })
+  //     .then(result => {
+  //       return result;
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
 
   updateTable = props => {
     return;
