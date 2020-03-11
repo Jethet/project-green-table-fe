@@ -11,17 +11,19 @@ class Navbar extends Component {
     return (
       <nav className="navbar">
         {isLoggedIn ? (
-          
-              <div>
-                <Link to={"/table"}>
-                  <img src="/images/homelink.png" id="table-home-link" alt="HOME" />
-                </Link>
-              
-            
-              <Link to={"/profile"}>
-                <img src="/images/user2.png" id="profile-page-link" alt="PROFILE" />
-              </Link>
-              </div>
+          <div>
+            <Link to={"/table"}>
+              <img src="/images/homelink.png" id="table-home-link" alt="HOME" />
+            </Link>
+
+            <Link to={"/profile"}>
+              <img src="/images/user2.png" id="profile-page-link" alt="PROFILE" />
+            </Link>
+
+            <Link to={"/credits"}>
+              <img src="/images/credits.png" id="credits-page-link" alt="CREDITS" />
+            </Link>
+          </div>
         ) : null}
       </nav>
     );

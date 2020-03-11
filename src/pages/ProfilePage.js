@@ -19,7 +19,7 @@ class ProfilePage extends Component {
     axios
       .get("http://localhost:5000/profile", { withCredentials: true })
       .then(response => {
-        this.setState({ username: response.data.username, tables: response.data.table });
+        this.setState({ username: response.data.username, tables: response.data.tables });
       });
   }
 
@@ -81,8 +81,8 @@ class ProfilePage extends Component {
               {!this.state.username ? (
                 "loading"
               ) : (
-                <div className="profile-form">
-                  <ul>
+                <div>
+                  <ul className="profile-form">
                     <li className="form-fields">
                       <label>Username:</label>
 
@@ -115,9 +115,11 @@ class ProfilePage extends Component {
               ? this.state.tables.map(el => {
                   return (
                     <div>
-                      <Link to={`/table/${el._id}`} >
-                        <p>{el.date}</p>
-                      </Link>
+                      <div>
+                        <Link to={`/table/${el._id}`}>
+                          <p>{el.date}</p>
+                        </Link>
+                      </div>
                       <p>{el.time}</p>
                       <p>{el.address}</p>
                       <p>{el.city}</p>
@@ -149,19 +151,18 @@ class ProfilePage extends Component {
 
           <div>
             <Link to="/table/invitations">
-              <button id="see-invite-button">See invites</button>
+              <div className="button-container">
+                <div className="button-holder">
+                  <button id="see-invite-button">Invites</button>
+                </div>
+              </div>
             </Link>
           </div>
-        
-          <div className="button-holder">
-            <Link to={"/credits"}>
-              <button id="credits-button">Credits</button>
-            </Link>
-          </div>
+
           <div className="button-container">
             <div className="button-holder">
               <button id="signout-button" onClick={this.handleClick}>
-                Sign out
+                Logout
               </button>
             </div>
           </div>

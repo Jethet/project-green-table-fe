@@ -269,7 +269,7 @@ class CreateTablePage extends React.Component {
                 </ul>
               </div>
               <button type="submit" id="submit-table">
-                Create table
+                Create a new table!
               </button>
               <div>
                 <button
@@ -349,12 +349,12 @@ class CreateTablePage extends React.Component {
               );
             })}
           </div>
-          <div className="button-container">
-            <div className="button-holder">
-              <Link to={"/invitation"}>
-                <button id="see-invite-button">See invite</button>
+          <div>
+            <button id="see-invite-button">
+              <Link to="/table/invitations" id="see-invite-button">
+                Check invitation
               </Link>
-            </div>
+            </button>
           </div>
         </div>
       </div>

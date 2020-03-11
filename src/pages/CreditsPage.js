@@ -18,6 +18,9 @@ function Credits() {
             <li className="credits">
               Wisse Hettinga, designer, for the images and background illustrations.
             </li>
+            <li className="credits">
+              Freepik, designer, for the icons used in the navbar.
+            </li>
           </ul>
         </div>
       </div>

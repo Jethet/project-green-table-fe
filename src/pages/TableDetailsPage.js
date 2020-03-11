@@ -25,32 +25,36 @@ class TableDetailsPage extends React.Component {
     console.log(this.state.theTable);
     const { date, time, address, city, guests, foodAndDrinks } = this.state.theTable;
 
-    return (
-    this.state.isLoading ?
-      null
-      :
-    <div>
-      <h2>{date}</h2>
-      <p>Guests:</p>
-      { guests.map(guest => {
-        return <p>{guest.username}</p>
-      }) }
+    return this.state.isLoading ? null : (
+      <div>
+        <div className="table-details-background">
+          <div className="table-details-container">
+            <div>
+              <h2>Details of your table:</h2>
+            </div>
+            <h3>{date}</h3>
+            <p>Guests:</p>
+            {guests.map(guest => {
+              return <p>{guest.username}</p>;
+            })}
 
-      <p>food:</p>
-      { foodAndDrinks.map(food => {
-        return (
-          <div>
-            <p>{food.dishType}</p>
-            <ul>
-              <li>{food.isVegan ? 
-              <p>vegan</p> : <p>not vegan</p>}</li>
-            </ul>
+            {foodAndDrinks.map(food => {
+              return (
+                <div>
+                  <p className="food-dishtype">{food.dishType}</p>
+                  <ul className="table-details-list">
+                    <li>{food.isVegan ? <p>vegan</p> : <p>not vegan</p>}</li>
+                    <li>
+                      {food.isVegetarian ? <p>vegetarian</p> : <p>not vegetarian</p>}
+                    </li>
+                  </ul>
+                </div>
+              );
+            })}
           </div>
-        )
-      }) }
-
-    </div>
-    )
+        </div>
+      </div>
+    );
   }
 }
 
