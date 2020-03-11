@@ -55,13 +55,43 @@ class CreateTablePage extends React.Component {
           isSelected: false
         }
       ],
-      guests: []
+      invitedFriend: "",
+      allUsers: [],
+      allInvitedFriends: []
     };
   }
 
+  componentDidMount() {
+    this.getAllUsers();
+  }
+
+  getAllUsers = () => {
+    axios
+      .get("http://localhost:5000/profile/all", { withCredentials: true })
+      .then(users => {
+        console.log("users :", users.data);
+        this.setState({
+          allUsers: users.data
+        });
+      })
+      .catch(error => console.log(error));
+  };
+
   handleSubmit = event => {
     event.preventDefault();
-    const { date, time, address, city, userId, foodAndDrinks, guests } = this.state;
+    const {
+      date,
+      time,
+      address,
+      city,
+      userId,
+      foodAndDrinks,
+      allInvitedFriends
+    } = this.state;
+
+    const allInvitedFriendsIds = allInvitedFriends.map(el => {
+      return el._id;
+    });
     const selectedFoodAndDrinks = foodAndDrinks.filter(el => {
       return el.isSelected;
     });
@@ -75,7 +105,7 @@ class CreateTablePage extends React.Component {
           city,
           userId,
           foodAndDrinksArray: selectedFoodAndDrinks,
-          guestsIdsArray: guests
+          guestsIdsArray: allInvitedFriendsIds
         },
         { withCredentials: true }
       )
@@ -161,131 +191,165 @@ class CreateTablePage extends React.Component {
     console.log(dishType, foodPref);
   };
 
+  addFriend = event => {
+    event.preventDefault();
+    const { value } = event.target;
+    const { allInvitedFriends } = this.state;
+    axios
+      .get(`http://localhost:5000/profile/${value}`)
+      .then(user => {
+        console.log("userbyUsername :", user.data);
+        const newAllInvitedFriends = allInvitedFriends;
+        newAllInvitedFriends.push(...user.data);
+        this.setState(
+          {
+            allInvitedFriends: newAllInvitedFriends,
+            invitedFriend: ""
+          },
+          () => console.log("allInvitedFriends :", allInvitedFriends)
+        );
+      })
+      .catch(error => console.log(error));
+  };
+
   createTable = props => {};
 
   render() {
+    console.log("this.state.allUsers :", this.state.allUsers);
+    console.log("this.state.allUsers.length :", this.state.allUsers.length);
     return (
       <div className="table-background">
         <div className="table-container">
-          <form onSubmit={this.handleSubmit}>
-            <div>
-              <h1>Create a table!</h1>
-            </div>
-            <div id="date-address">
-              <ul>
-                <li>
-                  <label>Date:</label>
-                  <input
-                    type="date"
-                    name="date"
-                    value={this.state.date}
-                    onChange={this.handleChange}
-                  />
-                </li>
-                <li>
-                  <label>Time:</label>
-                  <input
-                    type="time"
-                    name="time"
-                    value={this.state.time}
-                    onChange={this.handleChange}
-                  />
-                </li>
-                <li>
-                  <label>Address:</label>
-                  <input
-                    type="text"
-                    name="address"
-                    value={this.state.address}
-                    onChange={this.handleChange}
-                  />
-                </li>
-                <li>
-                  <label>City:</label>
-                  <input
-                    type="text"
-                    name="city"
-                    value={this.state.city}
-                    onChange={this.handleChange}
-                  />
-                </li>
-              </ul>
-            </div>
-            <button type="submit" id="submit-table">
-              Create table
-            </button>
-          </form>
+          <div id="create-page-header">
+            <h1>Create a table!</h1>
+          </div>
+          <div className="create-table-form">
+            <form onSubmit={this.handleSubmit}>
+              <div id="date-address">
+                <ul>
+                  <li className="form-fields">
+                    <label className="table-form-label">Date:</label>
+                    <input
+                      type="date"
+                      name="date"
+                      value={this.state.date}
+                      onChange={this.handleChange}
+                    />
+                  </li>
+                  <li className="form-fields">
+                    <label className="table-form-label">Time:</label>
+                    <input
+                      type="time"
+                      name="time"
+                      value={this.state.time}
+                      onChange={this.handleChange}
+                    />
+                  </li>
+                  <li className="form-fields">
+                    <label className="table-form-label">Address:</label>
+                    <input
+                      type="text"
+                      name="address"
+                      value={this.state.address}
+                      onChange={this.handleChange}
+                    />
+                  </li>
+                  <li className="form-fields">
+                    <label className="table-form-label">City:</label>
+                    <input
+                      type="text"
+                      name="city"
+                      value={this.state.city}
+                      onChange={this.handleChange}
+                    />
+                  </li>
+                </ul>
+              </div>
+              <button type="submit" id="submit-table">
+                Create table
+              </button>
+              <div>
+                <button
+                  onClick={this.addFriend}
+                  value={this.state.invitedFriend}
+                  id="invite-friends"
+                >
+                  Invite friends
+                </button>
+                <input
+                  type="text"
+                  onChange={this.handleChange}
+                  name="invitedFriend"
+                  value={this.state.invitedFriend}
+                  list="friends"
+                />
+                <datalist id="friends">
+                  {this.state.allUsers.length
+                    ? this.state.allUsers.map(user => {
+                        return <option key={user._id} value={`${user.username}`} />;
+                      })
+                    : null}
+                </datalist>
+                {this.state.allInvitedFriends.map(oneUser => {
+                  return <p>{oneUser.username}</p>;
+                })}
+                <h4>(these friends will get an invite)</h4>
+              </div>
+            </form>
 
-          <h3>I will bring this to the table:</h3>
-          {this.state.foodAndDrinks.map(dishObject => {
-            return (
-              <form>
-                <label>
-                  {dishObject.nameToDisplay}
-                  <input
-                    checked={dishObject.isSelected}
-                    type="radio"
-                    name={`${dishObject.dishType}#isSelected`}
-                    onChange={this.handleTickBox}
-                  />
-                </label>
+            <h3>I will bring this to the table:</h3>
+            {this.state.foodAndDrinks.map(dishObject => {
+              return (
+                <form>
+                  <label>
+                    <input
+                      checked={dishObject.isSelected}
+                      type="radio"
+                      name={`${dishObject.dishType}#isSelected`}
+                      onChange={this.handleTickBox}
+                    />
+                    {dishObject.nameToDisplay}
+                  </label>
 
-                <label>
-                  Vegetarian
-                  <input
-                    checked={dishObject.isVegetarian}
-                    value="Vegetarian"
-                    type="radio"
-                    name={`${dishObject.dishType}#isVegetarian`}
-                    onChange={this.handleTickBox}
-                  />
-                </label>
-                <label>
-                  Vegan
-                  <input
-                    checked={dishObject.isVegan}
-                    value="Vegan"
-                    type="radio"
-                    name={`${dishObject.dishType}#isVegan`}
-                    onChange={this.handleTickBox}
-                  />
-                </label>
+                  <label>
+                    <input
+                      checked={dishObject.isVegetarian}
+                      value="Vegetarian"
+                      type="radio"
+                      name={`${dishObject.dishType}#isVegetarian`}
+                      onChange={this.handleTickBox}
+                    />
+                    Vegetarian
+                  </label>
+                  <label>
+                    <input
+                      checked={dishObject.isVegan}
+                      value="Vegan"
+                      type="radio"
+                      name={`${dishObject.dishType}#isVegan`}
+                      onChange={this.handleTickBox}
+                    />
+                    Vegan
+                  </label>
 
-                <label>
-                  Gluten-free
-                  <input
-                    checked={dishObject.isGlutenFree}
-                    value="Gluten-free"
-                    type="radio"
-                    name={`${dishObject.dishType}#isGlutenFree`}
-                    onChange={this.handleTickBox}
-                  />
-                </label>
-              </form>
-            );
-            {
-              /* <div>
-              <SearchBar friendsByUsername={this.searchResult} />
-            </div>; */
-            }
-          })}
+                  <label>
+                    <input
+                      checked={dishObject.isGlutenFree}
+                      value="Gluten-free"
+                      type="radio"
+                      name={`${dishObject.dishType}#isGlutenFree`}
+                      onChange={this.handleTickBox}
+                    />
+                    Gluten-free
+                  </label>
+                </form>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
   }
-
-  // searchResult = oneUser => {
-  //   // e.preventDefault();
-  //   axios
-  //     .get("http://localhost:5000/",
-  //     { userName: oneUser }, { withCredentials: true })
-  //     .then(result => {
-  //       return result;
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
 
   updateTable = props => {
     return;

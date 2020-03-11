@@ -222,8 +222,16 @@ html {
 }
 
 .table-container {
-  margin: 10%;
-  margin-top: 40px;
+  margin: 0 8%;
+  margin-top: 30px;
+}
+
+#create-page-header {
+  text-align: center;
+}
+
+.create-table-form {
+  margin-top: 60px;
 }
 
 #date-address {
@@ -238,6 +246,12 @@ html {
 
 #date-address ul li {
   list-style: none;
+}
+
+.table-form-label {
+  display: inline-block;
+  width: 65px;
+  /* text-align: right; */
 }
 
 #table-home-link {
@@ -263,9 +277,27 @@ html {
   border-radius: 20%;
   border-style: none;
   font-family: "Architects Daughter", cursive;
-  font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 15px;
+  font-size: 13px;
+  margin-top: 55px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+#invite-friends {
+  background-color: rgb(10, 14, 247);
+  color: blanchedalmond;
+  padding: 3px;
+  border-radius: 20%;
+  border-style: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 13px;
+  margin-top: 55px;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 /* INVITATION PAGE */
@@ -304,14 +336,47 @@ html {
   margin-top: 40px;
 }
 
-.profile-image {
+.profile-edit-buttons {
+  background-color: rgb(10, 14, 247);
+  color: blanchedalmond;
+  padding: 3px;
+  border-radius: 20%;
+  border-style: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+/* .profile-image {
   width: 120px;
   height: 120px;
   border-radius: 50%;
+} */
+
+.form-profile-page {
+  margin-top: 15px;
 }
 
 #tables-list {
   list-style: none;
+}
+
+.button-container {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  flex-direction: column;
+  justify-items: right;
+  /* height: 100vh; */
+  display: flex;
+}
+.button-holder {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  right: 0;
+  bottom: 0;
 }
 
 #signout-button {
@@ -322,25 +387,8 @@ html {
   border-style: none;
   font-family: "Architects Daughter", cursive;
   font-size: 16px;
-  margin-top: 10px;
+  margin-right: 15px;
   margin-bottom: 15px;
-}
-
-.button-container {
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-  flex-direction: column;
-  justify-items: right;
-  /* height: 100vh; */
-  display: flex;
-}
-.button-container .button-holder {
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  right: 0;
-  bottom: 0;
 }
 
 #credits-button {
@@ -351,8 +399,8 @@ html {
   border-style: none;
   font-family: "Architects Daughter", cursive;
   font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 15px;
+  margin-right: 15px;
+  margin-bottom: 50px;
 }
 
 /* CREDITS PAGE */

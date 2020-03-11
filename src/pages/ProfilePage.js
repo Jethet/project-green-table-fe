@@ -54,31 +54,32 @@ class ProfilePage extends Component {
           <div>
             <h1>Your Profile Page</h1>
           </div>
-          <div>
+          <div className="form-profile-page">
             <form onSubmit={this.handleSubmit}>
               {!this.state.username ? (
                 "loading"
               ) : (
                 <div className="profile-form">
-                  <div></div>
                   <ul>
-                    <li>
-                      <label>Userame:</label>
-                      <button>Edit username</button>
+                    <li className="form-fields">
+                      <label>Username:</label>
+
                       <input
                         type="username"
                         value={this.state.username}
                         onChange={this.handleChange}
                       />
+                      <button className="profile-edit-buttons">Edit username</button>
                     </li>
-                    <li>
+                    <li className="form-fields">
                       <label>Password:</label>
-                      <button>Edit name</button>
+
                       <input
                         type="password"
                         value={this.state.password}
                         onChange={this.handleChange}
                       />
+                      <button className="profile-edit-buttons">Edit password</button>
                     </li>
                   </ul>
                 </div>
