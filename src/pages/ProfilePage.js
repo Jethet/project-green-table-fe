@@ -23,12 +23,25 @@ class ProfilePage extends Component {
       });
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.tables !== this.state.tables) {
+  //     axios
+  //       .get("http://localhost:5000/profile", { withCredentials: true })
+  //       .then(response => {
+  //         this.setState({
+  //           username: response.data.username,
+  //           tables: response.data.table
+  //         });
+  //       });
+  //   }
+  // }
+
   handleFormSubmit = event => {
     event.preventDefault();
     const tables = this.state.tables;
     const user = this.state.user;
     axios
-      .get("http://localhost:5000/api/profile", { withCredentials: true })
+      .get("http://localhost:5000/profile", { withCredentials: true })
       .then(() => {
         // this.props.getData();
         this.setState({ tables: "", user: "" });
@@ -45,6 +58,15 @@ class ProfilePage extends Component {
   handleClick = event => {
     const { user } = event.target;
     this.props.logout(user);
+  };
+
+  handleDeleteTable = id => {
+    axios
+      .delete(`http://localhost:5000/table/${id}`, { withCredentials: true })
+      .then(() => {
+        this.props.history.push("/profile");
+      })
+      .catch(error => console.log(error));
   };
 
   render() {
@@ -93,7 +115,9 @@ class ProfilePage extends Component {
               ? this.state.tables.map(el => {
                   return (
                     <div>
-                      <p>{el.date}</p>
+                      <Link to={`/table/${el._id}`} >
+                        <p>{el.date}</p>
+                      </Link>
                       <p>{el.time}</p>
                       <p>{el.address}</p>
                       <p>{el.city}</p>
@@ -106,6 +130,14 @@ class ProfilePage extends Component {
                           );
                         })}
                       </div>
+                      <div>
+                        <button
+                          id="delete-table-button"
+                          onClick={() => this.handleDeleteTable(el._id)}
+                        >
+                          Delete
+                        </button>
+                      </div>
                     </div>
                   );
                 })
@@ -114,6 +146,13 @@ class ProfilePage extends Component {
               <li></li>
             </ul>
           </div>
+
+          <div>
+            <Link to="/table/invitations">
+              <button id="see-invite-button">See invites</button>
+            </Link>
+          </div>
+        
           <div className="button-holder">
             <Link to={"/credits"}>
               <button id="credits-button">Credits</button>
@@ -121,11 +160,9 @@ class ProfilePage extends Component {
           </div>
           <div className="button-container">
             <div className="button-holder">
-              <Link to={"/"}>
-                <button id="signout-button" onClick={this.handleClick}>
-                  Sign out
-                </button>
-              </Link>
+              <button id="signout-button" onClick={this.handleClick}>
+                Sign out
+              </button>
             </div>
           </div>
         </div>

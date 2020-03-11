@@ -11,7 +11,7 @@ function PrivateRoute({ component: Component, isLoggedIn, exact, path }) {
       path={path}
       render={function(props) {
         if (isLoggedIn) return <Component {...props} />;
-        else if (!isLoggedIn) return <Redirect to="/login" />;
+        else if (!isLoggedIn) return <Redirect to="/" />;
       }}
     />
   );

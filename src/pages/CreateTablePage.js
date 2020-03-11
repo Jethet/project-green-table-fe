@@ -60,6 +60,7 @@ class CreateTablePage extends React.Component {
       allInvitedFriends: []
     };
   }
+  // In the code, 'guests' is the equivalent of allInvitedFriends
 
   componentDidMount() {
     this.getAllUsers();
@@ -161,7 +162,9 @@ class CreateTablePage extends React.Component {
               isSelected: false
             }
           ],
-          guests: []
+          guests: [],
+          invitedFriend: "",
+          allInvitedFriends: []
         });
       })
       .catch(err => console.log(err));
@@ -345,6 +348,13 @@ class CreateTablePage extends React.Component {
                 </form>
               );
             })}
+          </div>
+          <div className="button-container">
+            <div className="button-holder">
+              <Link to={"/invitation"}>
+                <button id="see-invite-button">See invite</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -314,6 +314,19 @@ html {
   margin-bottom: 5px;
 }
 
+#see-invite-button {
+  background-color: rgb(10, 14, 247);
+  color: blanchedalmond;
+  padding: 3px;
+  border-radius: 20%;
+  border-style: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 13px;
+  margin-top: 55px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
 /* INVITATION PAGE */
 .invitation-background {
   height: 100vh;
@@ -400,7 +413,7 @@ html {
   border-radius: 20%;
   border-style: none;
   font-family: "Architects Daughter", cursive;
-  font-size: 16px;
+  font-size: 15px;
   margin-right: 15px;
   margin-bottom: 15px;
 }
@@ -408,7 +421,7 @@ html {
 #credits-button {
   background-color: rgb(10, 14, 247);
   color: blanchedalmond;
-  padding: 3px;
+  padding: 4px;
   border-radius: 20%;
   border-style: none;
   font-family: "Architects Daughter", cursive;
@@ -416,6 +429,20 @@ html {
   margin-right: 15px;
   margin-bottom: 50px;
 }
+
+#delete-table-button {
+  background-color: rgb(10, 14, 247);
+  color: blanchedalmond;
+  padding: 4px;
+  border-radius: 20%;
+  border-style: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 16px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+
 
 /* CREDITS PAGE */
 .credits-background {

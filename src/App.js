@@ -32,9 +32,9 @@ class App extends Component {
 
           <PrivateRoute exact path="/private" component={Private} />
           <PrivateRoute exact path="/table" component={CreateTablePage} />
+          <PrivateRoute exact path="/table/invitations" component={InvitationPage} />
           <PrivateRoute exact path="/table/:id" component={TableDetailsPage} />
           <PrivateRoute exact path="/table/:id/edit" component={TableEditPage} />
-          <PrivateRoute exact path="/table/invitation/:id" component={InvitationPage} />
           <PrivateRoute exact path="/profile" component={ProfilePage} />
           <PrivateRoute exact path="/credits" component={CreditsPage} />
         </Switch>
