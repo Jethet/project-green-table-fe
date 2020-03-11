@@ -49,10 +49,11 @@ class Signup extends Component {
             </div>
             <div id="have-account">
               <p>Already have account?</p>
+
+              <Link to={"/login"} style={{ textDecoration: "none" }}>
+                <div id="button-have-account">Log in</div>
+              </Link>
             </div>
-            <Link to={"/login"} style={{ textDecoration: "none" }}>
-              <div id="button-have-account">Login</div>
-            </Link>
           </form>
           <div id="image-box-signup">
             <img

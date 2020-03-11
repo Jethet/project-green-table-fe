@@ -81,7 +81,7 @@ html {
   border-style: none;
   margin-left: 5px;
   font-family: "Architects Daughter", cursive;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 #signup {
@@ -102,7 +102,7 @@ html {
   border-style: none;
   margin-left: 5px;
   font-family: "Architects Daughter", cursive;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 /* SIGNUP PAGE */
@@ -134,7 +134,7 @@ html {
   border-style: none;
   text-decoration: none;
   font-family: "Architects Daughter", cursive;
-  font-size: 16px;
+  font-size: 15px;
   margin-top: 15px;
   max-width: 55px;
 }
@@ -175,7 +175,8 @@ html {
   border-radius: 20%;
   border-style: none;
   font-family: "Architects Daughter", cursive;
-  font-size: 16px;
+  font-size: 15px;
+  margin-top: 15px;
 }
 
 /* LOGIN PAGE */
@@ -197,6 +198,19 @@ html {
 
 #no-account {
   margin-top: 20px;
+}
+
+#button-signup {
+  background-color: rgb(10, 14, 247);
+  color: blanchedalmond;
+  padding: 5px;
+  border-radius: 20%;
+  border-style: none;
+  text-decoration: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 15px;
+  margin-top: 15px;
+  max-width: 55px;
 }
 
 #image-box-login {

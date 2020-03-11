@@ -114,17 +114,17 @@ class ProfilePage extends Component {
               <li></li>
             </ul>
           </div>
+          <div className="button-holder">
+            <Link to={"/credits"}>
+              <button id="credits-button">Credits</button>
+            </Link>
+          </div>
           <div className="button-container">
             <div className="button-holder">
               <Link to={"/"}>
                 <button id="signout-button" onClick={this.handleClick}>
                   Sign out
                 </button>
-              </Link>
-            </div>
-            <div className="button-holder">
-              <Link to={"/credits"}>
-                <button id="credits-button">Credits</button>
               </Link>
             </div>
           </div>

@@ -205,8 +205,8 @@ class CreateTablePage extends React.Component {
           {
             allInvitedFriends: newAllInvitedFriends,
             invitedFriend: ""
-          },
-          () => console.log("allInvitedFriends :", allInvitedFriends)
+          }
+          // () => console.log("allInvitedFriends :", allInvitedFriends)
         );
       })
       .catch(error => console.log(error));

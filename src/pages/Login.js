@@ -45,11 +45,15 @@ class Login extends Component {
               />
             </div>
             <div>
-              <input type="submit" value="Login" className="click-button-signup" />
+              <input type="submit" value="Log in" className="click-button-signup" />
             </div>
             <div id="no-account">
               <p>No account yet?</p>
-              <Link to={"/signup"}> Signup</Link>
+              <Link to={"/signup"} style={{ textDecoration: "none" }}>
+                <button className="click-button-signup" onClick={this.handleClick}>
+                  Signup
+                </button>
+              </Link>
             </div>
           </form>
 
