@@ -269,7 +269,7 @@ class CreateTablePage extends React.Component {
                 </ul>
               </div>
               <button type="submit" id="submit-table">
-                Create a new table!
+                Create table
               </button>
               <div>
                 <button
@@ -300,7 +300,7 @@ class CreateTablePage extends React.Component {
               </div>
             </form>
 
-            <h3>I will bring this to the table:</h3>
+            <h2>I will bring this:</h2>
             {this.state.foodAndDrinks.map(dishObject => {
               return (
                 <form>
@@ -348,13 +348,6 @@ class CreateTablePage extends React.Component {
                 </form>
               );
             })}
-          </div>
-          <div>
-            <button id="see-invite-button">
-              <Link to="/table/invitations" id="see-invite-button">
-                Check invitation
-              </Link>
-            </button>
           </div>
         </div>
       </div>

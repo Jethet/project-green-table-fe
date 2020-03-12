@@ -21,6 +21,20 @@ class TableDetailsPage extends React.Component {
       .catch(err => console.log(err));
   }
 
+  formatDate = d => {
+    let date = new Date(d);
+    let dd = date.getDate();
+    let mm = date.getMonth() + 1;
+    let yyyy = date.getFullYear();
+    if (dd < 10) {
+      dd = "0" + dd;
+    }
+    if (mm < 10) {
+      mm = "0" + mm;
+    }
+    return (d = dd + "/" + mm + "/" + yyyy);
+  };
+
   render() {
     console.log(this.state.theTable);
     const { date, time, address, city, guests, foodAndDrinks } = this.state.theTable;
@@ -30,14 +44,19 @@ class TableDetailsPage extends React.Component {
         <div className="table-details-background">
           <div className="table-details-container">
             <div>
-              <h2>Details of your table:</h2>
+              <h2>Details of this table:</h2>
             </div>
-            <h3>{date}</h3>
-            <p>Guests:</p>
-            {guests.map(guest => {
-              return <p>{guest.username}</p>;
-            })}
-
+            <div>
+              <h3>{this.formatDate(date)}</h3>
+              <h3>Guests:</h3>
+              {guests.map(guest => {
+                return <p>{guest.username}</p>;
+              })}
+              <br />
+            </div>
+            <div>
+              <h3>What everyone is bringing:</h3>
+            </div>
             {foodAndDrinks.map(food => {
               return (
                 <div>
@@ -48,10 +67,14 @@ class TableDetailsPage extends React.Component {
                       {food.isVegetarian ? <p>vegetarian</p> : <p>not vegetarian</p>}
                     </li>
                   </ul>
+                  <br />
                 </div>
               );
             })}
           </div>
+          <button className="click-button-signup" onClick={this.props.history.goBack}>
+            Back
+          </button>
         </div>
       </div>
     );

@@ -14,27 +14,20 @@ class ProfilePage extends Component {
       password: ""
     };
   }
-  componentDidMount() {
-    // Make axios get request to get user profile  // set it in the state
+
+  getTableData = () => {
     axios
       .get("http://localhost:5000/profile", { withCredentials: true })
       .then(response => {
-        this.setState({ username: response.data.username, tables: response.data.tables });
+        console.log("response.data :", response.data);
+        this.setState({ username: response.data.username, tables: response.data.table });
       });
-  }
+  };
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.tables !== this.state.tables) {
-  //     axios
-  //       .get("http://localhost:5000/profile", { withCredentials: true })
-  //       .then(response => {
-  //         this.setState({
-  //           username: response.data.username,
-  //           tables: response.data.table
-  //         });
-  //       });
-  //   }
-  // }
+  componentDidMount() {
+    // Make axios get request to get user profile  // set it in the state
+    this.getTableData();
+  }
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -64,17 +57,33 @@ class ProfilePage extends Component {
     axios
       .delete(`http://localhost:5000/table/${id}`, { withCredentials: true })
       .then(() => {
+        this.getTableData();
         this.props.history.push("/profile");
       })
       .catch(error => console.log(error));
   };
 
+  formatDate = d => {
+    let date = new Date(d);
+    let dd = date.getDate();
+    let mm = date.getMonth() + 1;
+    let yyyy = date.getFullYear();
+    if (dd < 10) {
+      dd = "0" + dd;
+    }
+    if (mm < 10) {
+      mm = "0" + mm;
+    }
+    return (d = dd + "/" + mm + "/" + yyyy);
+  };
+
   render() {
+    console.log("this.state.tables :", this.state.tables);
     return (
       <div className="profile-background">
         <div className="profile-container">
           <div>
-            <h1>Your Profile Page</h1>
+            <h1>My profile page</h1>
           </div>
           <div className="form-profile-page">
             <form onSubmit={this.handleSubmit}>
@@ -110,20 +119,23 @@ class ProfilePage extends Component {
           </div>
 
           <div>
-            <h2>My tables:</h2>
+            <h2>Tables I am hosting:</h2>
             {this.state.tables
               ? this.state.tables.map(el => {
                   return (
                     <div>
                       <div>
                         <Link to={`/table/${el._id}`}>
-                          <p>{el.date}</p>
+                          <p>{this.formatDate(el.date)}</p>
                         </Link>
                       </div>
-                      <p>{el.time}</p>
+                      <p>Time: {el.time}</p>
                       <p>{el.address}</p>
                       <p>{el.city}</p>
                       <div>
+                        <div>
+                          <h3>Food & drinks I am bringing:</h3>
+                        </div>
                         {el.foodAndDrinks.map(item => {
                           return (
                             <div>
