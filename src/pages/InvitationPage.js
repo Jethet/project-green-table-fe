@@ -43,21 +43,22 @@ class InvitationPage extends React.Component {
       <div>
         <div className="invitation-background">
           <div className="invitation-container">
+          <h2 id="invitations-header">My invitations:</h2>
             {this.state.tableInvites.length ? (
               this.state.tableInvites.map(invite => {
                 return (
                   <div>
                     <div>
-                      <h1>My invitations:</h1>
+                      
                     </div>
                     <div>
-                      <p>Host: {invite.userId.username}</p>
+                      <p>Invitation from host: {invite.userId.username}</p>
                       <p>Date: {this.formatDate(invite.date)}</p>
                       <p>Time: {invite.time}</p>
                       <p>Address: {invite.address}</p>
                       <p>City: {invite.city}</p>
                       <Link to={`/table/${invite._id}`}>
-                        <button className="profile-edit-buttons">See details</button>
+                        <button className="details-button">See details</button>
                       </Link>
                     </div>
                   </div>
@@ -67,6 +68,9 @@ class InvitationPage extends React.Component {
               <p>You have no invites yet</p>
             )}
           </div>
+          <button className="details-back-button" onClick={this.props.history.goBack}>
+            Back
+          </button>
         </div>
       </div>
     );

@@ -242,12 +242,12 @@ html {
 
 .table-container {
   margin: 0 8%;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 #create-page-header {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 45px;
 }
 
 .create-table-form {
@@ -281,7 +281,7 @@ html {
   border-radius: 20%;
   border-style: none;
   font-family: "Architects Daughter", cursive;
-  font-size: 13px;
+  font-size: 14px;
   margin-top: 55px;
   margin-right: 10px;
   margin-bottom: 5px;
@@ -321,6 +321,39 @@ html {
   margin-top: 40px;
 }
 
+#invitations-header {
+  margin-top: 45px;
+  margin-bottom: 15px;
+}
+
+.details-button {
+  background-color: rgb(10, 14, 247);
+  color: blanchedalmond;
+  padding: 3px;
+  border-radius: 20%;
+  border-style: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.details-back-button {
+  background-color: rgb(10, 14, 247);
+  color: blanchedalmond;
+  padding: 4px;
+  border-radius: 20%;
+  border-style: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 17px;
+  margin-right: 15px;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  right: 5.5%;
+  bottom: 10%;
+}
+
 /* TABLE DETAILS PAGE */
 .table-details-background {
   height: 100vh;
@@ -339,13 +372,18 @@ html {
   margin-top: 50px;
 }
 
+#table-details-header {
+  margin-bottom: 15px;
+}
+
 .food-dishtype {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
 }
 
 .table-details-list {
-  list-style-type: none;
+  /* list-style-type: none; */
+  margin-left: 20px;
 }
 
 /* PROFILE PAGE */
@@ -363,7 +401,11 @@ html {
 
 .profile-container {
   margin: 10%;
-  margin-top: 40px;
+  margin-top: 20px;
+}
+
+#profile-header {
+  margin-top: 45px;
 }
 
 .profile-edit-buttons {
@@ -373,9 +415,14 @@ html {
   border-radius: 20%;
   border-style: none;
   font-family: "Architects Daughter", cursive;
-  font-size: 12px;
-  margin-top: 10px;
-  margin-bottom: 15px;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.form-fields {
+  margin-bottom: 3px;
 }
 
 /* .profile-image {
@@ -388,30 +435,12 @@ html {
 }
 
 .form-profile-page {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 #tables-list {
   list-style: none;
 }
-
-/* .button-container {
-  display: flex;
-  position: fixed;
-  justify-content: space-between;
-  flex-direction: column;
-  justify-items: right;
-  height: 100vh;
-  display: flex;
-} */
-
-/* .button-holder {
-  display: flex;
-  justify-content: flex-end;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-} */
 
 #signout-button {
   background-color: rgb(10, 14, 247);
@@ -436,7 +465,7 @@ html {
   border-radius: 20%;
   border-style: none;
   font-family: "Architects Daughter", cursive;
-  font-size: 16px;
+  font-size: 17px;
   margin-right: 15px;
   display: flex;
   justify-content: flex-end;
@@ -454,7 +483,7 @@ html {
   font-family: "Architects Daughter", cursive;
   font-size: 15px;
   margin-right: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 /* CREDITS PAGE */
@@ -471,16 +500,19 @@ html {
 }
 
 .credits-container {
-  margin: 10%;
+  margin: 5%;
+  margin-left: 6%;
   margin-top: 50px;
 }
 
 #credits-title {
-  margin-top: 50px;
+  margin: 5px;
 }
 .credits {
   margin-top: 30px;
-  font-size: 18px;
+  margin-left: 15px;
+  margin-right: 20px;
+  font-size: 20px;
 }
 
 /* NAVBAR */

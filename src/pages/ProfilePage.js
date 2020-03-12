@@ -82,8 +82,8 @@ class ProfilePage extends Component {
     return (
       <div className="profile-background">
         <div className="profile-container">
-          <div>
-            <h1>My profile page</h1>
+          <div >
+            <h1 id="profile-header">My profile page</h1>
           </div>
           <div className="form-profile-page">
             <form onSubmit={this.handleSubmit}>
@@ -100,7 +100,7 @@ class ProfilePage extends Component {
                         value={this.state.username}
                         onChange={this.handleChange}
                       />
-                      <button className="profile-edit-buttons">Edit username</button>
+                      <button className="profile-edit-buttons">Edit</button>
                     </li>
                     <li className="form-fields">
                       <label>Password:</label>
@@ -110,7 +110,7 @@ class ProfilePage extends Component {
                         value={this.state.password}
                         onChange={this.handleChange}
                       />
-                      <button className="profile-edit-buttons">Edit password</button>
+                      <button className="profile-edit-buttons">Edit</button>
                     </li>
                   </ul>
                 </div>
@@ -130,8 +130,8 @@ class ProfilePage extends Component {
                         </Link>
                       </div>
                       <p>Time: {el.time}</p>
-                      <p>{el.address}</p>
-                      <p>{el.city}</p>
+                      <p>Address: {el.address}</p>
+                      <p>City: {el.city}</p>
                       <div>
                         <div>
                           <h3>Food & drinks I am bringing:</h3>

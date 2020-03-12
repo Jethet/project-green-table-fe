@@ -6,10 +6,10 @@ function Credits() {
     <div className="credits-background">
       <div className="credits-container">
         <div>
-          <h1>Acknowledgements</h1>
+          <h1 id="credits-header">Acknowledgements</h1>
         </div>
-        <div id="credits-title">
-          <h2>Many thanks to:</h2>
+        <div>
+          <h2 id="credits-title">Many thanks to:</h2>
           <ul className="credits">
             <li className="credits">
               Kimberly Geswein, designer, for the beautiful font 'Architects Daughter'.

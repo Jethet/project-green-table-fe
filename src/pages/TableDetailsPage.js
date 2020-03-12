@@ -44,10 +44,10 @@ class TableDetailsPage extends React.Component {
         <div className="table-details-background">
           <div className="table-details-container">
             <div>
-              <h2>Details of this table:</h2>
+              <h2 id="table-details-header">Details of this table:</h2>
             </div>
             <div>
-              <h3>{this.formatDate(date)}</h3>
+              <h3>Date: {this.formatDate(date)}</h3>
               <h3>Guests:</h3>
               {guests.map(guest => {
                 return <p>{guest.username}</p>;
@@ -66,13 +66,19 @@ class TableDetailsPage extends React.Component {
                     <li>
                       {food.isVegetarian ? <p>vegetarian</p> : <p>not vegetarian</p>}
                     </li>
+                    <li>
+                      {food.isGlutenfree ? <p>gluten-free</p> : <p>not gluten-free</p>}
+                    </li>
+                    <li>
+                      {food.isAlcohol ? <p>alcoholic drink</p> : <p>non-alcoholic drink</p>}
+                    </li>
                   </ul>
                   <br />
                 </div>
               );
             })}
           </div>
-          <button className="click-button-signup" onClick={this.props.history.goBack}>
+          <button className="details-back-button" onClick={this.props.history.goBack}>
             Back
           </button>
         </div>
