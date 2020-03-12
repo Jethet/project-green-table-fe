@@ -199,7 +199,7 @@ class CreateTablePage extends React.Component {
     const { value } = event.target;
     const { allInvitedFriends } = this.state;
     axios
-      .get(`http://localhost:5000/profile/${value}`)
+      .get(`${process.env.REACT_APP_API_URL}/profile/${value}`)
       .then(user => {
         console.log("userbyUsername :", user.data);
         const newAllInvitedFriends = allInvitedFriends;

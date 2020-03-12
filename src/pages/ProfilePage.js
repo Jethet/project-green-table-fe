@@ -55,7 +55,7 @@ class ProfilePage extends Component {
 
   handleDeleteTable = id => {
     axios
-      .delete(`http://localhost:5000/table/${id}`, { withCredentials: true })
+      .delete(`${process.env.REACT_APP_API_URL}/table/${id}`, { withCredentials: true })
       .then(() => {
         this.getTableData();
         this.props.history.push("/profile");

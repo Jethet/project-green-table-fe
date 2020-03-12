@@ -13,7 +13,7 @@ class TableDetailsPage extends React.Component {
     const { id } = this.props.match.params;
 
     axios
-      .get(`http://localhost:5000/table/${id}`)
+      .get(`${process.env.REACT_APP_API_URL}/table/${id}`)
       .then(apiResponse => {
         const theTable = apiResponse.data;
         this.setState({ theTable, isLoading: false });
@@ -70,7 +70,11 @@ class TableDetailsPage extends React.Component {
                       {food.isGlutenfree ? <p>gluten-free</p> : <p>not gluten-free</p>}
                     </li>
                     <li>
-                      {food.isAlcohol ? <p>alcoholic drink</p> : <p>non-alcoholic drink</p>}
+                      {food.isAlcohol ? (
+                        <p>alcoholic drink</p>
+                      ) : (
+                        <p>non-alcoholic drink</p>
+                      )}
                     </li>
                   </ul>
                   <br />
