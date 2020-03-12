@@ -17,7 +17,7 @@ class ProfilePage extends Component {
 
   getTableData = () => {
     axios
-      .get(process.env.REACT_APP_API_URL + "/profile", { withCredentials: true })
+      .get("http://localhost:5000/profile", { withCredentials: true })
       .then(response => {
         console.log("response.data :", response.data);
         this.setState({ username: response.data.username, tables: response.data.table });
@@ -34,7 +34,7 @@ class ProfilePage extends Component {
     const tables = this.state.tables;
     const user = this.state.user;
     axios
-      .get(process.env.REACT_APP_API_URL + "/profile", { withCredentials: true })
+      .get("http://localhost:5000/profile", { withCredentials: true })
       .then(() => {
         // this.props.getData();
         this.setState({ tables: "", user: "" });
@@ -82,7 +82,7 @@ class ProfilePage extends Component {
     return (
       <div className="profile-background">
         <div className="profile-container">
-          <div>
+          <div >
             <h1 id="profile-header">My profile page</h1>
           </div>
           <div className="form-profile-page">

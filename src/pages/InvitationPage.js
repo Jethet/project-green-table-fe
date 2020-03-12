@@ -12,7 +12,7 @@ class InvitationPage extends React.Component {
   componentDidMount() {
     // Make axios get request to get user info  // set it in the state
     axios
-      .get(process.env.REACT_APP_API_URL+"/profile", { withCredentials: true })
+      .get("http://localhost:5000/profile", { withCredentials: true })
       .then(response => {
         console.log("response.data :", response.data);
         this.setState({

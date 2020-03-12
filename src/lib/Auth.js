@@ -57,7 +57,7 @@ class AuthProvider extends React.Component {
   }
 
   signup = (username, password) => {
-    //  axios.post(process.env.REACT_APP_API_URL//auth/signup", {username, password})
+//  axios.post("http://localhost:5000//auth/signup", {username, password}) 
     authService
       .signup({ username, password })
       .then(user => this.setState({ isLoggedIn: true, user }))
