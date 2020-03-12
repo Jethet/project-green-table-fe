@@ -12,7 +12,7 @@ class InvitationPage extends React.Component {
   componentDidMount() {
     // Make axios get request to get user info  // set it in the state
     axios
-      .get("http://localhost:5000/profile", { withCredentials: true })
+      .get(process.env.REACT_APP_API_URL + "/profile", { withCredentials: true })
       .then(response => {
         console.log("response.data :", response.data);
         this.setState({
@@ -43,14 +43,12 @@ class InvitationPage extends React.Component {
       <div>
         <div className="invitation-background">
           <div className="invitation-container">
-          <h2 id="invitations-header">My invitations:</h2>
+            <h2 id="invitations-header">My invitations:</h2>
             {this.state.tableInvites.length ? (
               this.state.tableInvites.map(invite => {
                 return (
                   <div>
-                    <div>
-                      
-                    </div>
+                    <div></div>
                     <div>
                       <p>Invitation from host: {invite.userId.username}</p>
                       <p>Date: {this.formatDate(invite.date)}</p>

@@ -68,7 +68,7 @@ class CreateTablePage extends React.Component {
 
   getAllUsers = () => {
     axios
-      .get("http://localhost:5000/profile/all", { withCredentials: true })
+      .get(process.env.REACT_APP_API_URL + "/profile/all", { withCredentials: true })
       .then(users => {
         console.log("users :", users.data);
         this.setState({
