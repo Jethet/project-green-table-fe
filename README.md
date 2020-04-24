@@ -6,7 +6,6 @@
 
 ## Description
 
-(The text uses 'they' and 'their' instead of 'he', 'she', 'his' and 'her')
 
 The Green Table is an app that is designed for the user who would like to get together with friends for a meal that is healthy, made with healthy and sustainable products. Keywords are sharing with friends, having a good time together, green living, and locally produced, organic or fair trade products. The user and many of their friends have chosen a sustainable way of living and make responsible choices that fit this way of life. They are vegetarians or vegans, often out of conviction. Some of them do not drink alcohol. They want to respect each others choices and preferences when having meals together.
 
