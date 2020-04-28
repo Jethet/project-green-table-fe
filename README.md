@@ -199,7 +199,7 @@ dishType: {
 
 ## Technology
 
-- Javascript
+- JavaScript
 - Node JS
 - Express
 - React
