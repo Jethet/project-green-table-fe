@@ -188,6 +188,7 @@ dishType: {
 
 ## Backlog
 
+- Created for mobile, but screen size is not always responsive
 - Include calendar with options to click and create tables or see table details
 - Offer guest option to accept/decline invitation
 - Offer user option to see address on map
@@ -214,16 +215,12 @@ dishType: {
 
 
 
-### GitHub
-
-The url to your repository and to your deployed project
-
 [Client Repository Link](https://github.com/Jethet/project-green-table-fe)
 
 [Server Repository Link](https://github.com/Jethet/project-green-table-be)
 
 
-[Deploy Link]()
+[Deploy Link](https://project-the-green-table.herokuapp.com/)
 
 
 
@@ -231,8 +228,4 @@ The url to your repository and to your deployed project
 
 
 
-### Slides
 
-The url to your presentation slides
-
-[Slides Link](
